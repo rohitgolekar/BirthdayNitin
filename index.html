@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Grad Calculator</title>
+    <style>
+        .left_section {
+            border-left: 5px solid rgb(51, 153, 153);
+            color: rgb(12 227 227);
+            margin-bottom: 25px;
+            height: 110px;
+            margin-top: 43px !important;
+            /* padding-top: 10px; */
+            box-shadow: 1px 2px 10px 7px;
+            /* margin-left: 50px; */
+            font-size: 20px;
+            text-shadow: 6px 3px #842029;
+        }
+
+        .mainrow {
+            border-radius: 10px;
+            box-shadow: 0px 5px 10px 2px #0f5132;
+        }
+
+        input {
+            background-color: transparent;
+            border: none;
+            border-bottom: 2px solid rgb(51, 153, 153);
+            margin-bottom: 5px;
+            margin-top: 12px;
+            color: #fcf4f4;
+            box-shadow: -1px 0px 5px 2px cyan;
+            padding: 2px 14px;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        button{
+            color: #ffc107d9;
+            font-weight: 600;
+            background: transparent;
+            border: none;
+            box-shadow: -1px 0px 5px 2px #212529;
+            padding: 2px 25px;
+            margin-top: 15px;
+            border-radius: 8px;
+        }
+        input, input:focus{
+            outline:0px !important;
+            -webkit-appearance:none;
+            }
+            ::-webkit-input-placeholder { 
+            color: #fcf4f4;
+            }
+
+            #textdiv {
+            animation: textgrowth 2s infinite alternate;
+            }
+
+            @keyframes textgrowth {
+                0% {
+                font-size: 20px;
+                }
+                100% {
+                font-size: 23px;
+                }
+            }
+    </style>
+</head>
+<body style="background-color: aqua; font-family: monospace;">
+    <!-- <div class="container">
+        <div class="row mx-auto my-5 p-4">
+            <div class="col-md-6 mx-auto">
+                <div class="row bg-secondary mainrow p-4">
+                      <div class="col-md-5 left_section text-uppercase fw-bold"><span id="textdiv">Student <br> Grade<br> Calcy</span></div>
+                      <div class="col-md-4 mx-4 right_section">
+                          <input type="text" name="program" id="program" placeholder="WEB PROGGRAMING">
+                          <input type="text" name="math" id="math" placeholder="MATH">
+                          <input type="text" name="physics" id="physics" placeholder="PHYSICS">
+                          <input type="text" name="computer" id="computer" placeholder="COMPUTER">
+                          <button onclick="calculate()">PERCENTAGE</button>
+                      </div>
+                    
+                      <p class="text-center mt-4">Note : Total should be less than 400 </p>
+                      <div class="col-md-12 mt-1">
+                          <p class="text-uppercase text-warning text-center text-bold" id="output"></p>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="container">
+        <div class="row mx-auto my-5 p-4">
+            <div class="col-md-6 mx-auto">
+                <div class="row bg-secondary mx-auto mainrow p-4">
+                      <div class="col-md-12 text-center pt-4 left_section text-uppercase fw-bold" style=" border-radius: 15px;">Hi Nitin, Today is your birthday?</div>
+                      <button onclick="birthday()">Surprise ...!</button>
+                      <div class="col-md-12 text-center pt-4 left_section text-uppercase fw-bold"  style="display: none; height: 300px; border-radius: 15px;" id="textdiv1"><img style="height: 250px;" class="img-fluid" src="https://www.funimada.com/assets/images/cards/big/bday-314.gif" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function calculate(){
+            let program = parseInt(document.getElementById("program").value);
+            let math = parseInt(document.getElementById("math").value);
+            let physics = parseInt(document.getElementById("physics").value);
+            let computer = parseInt(document.getElementById("computer").value);
+
+            let total = program + math + physics + computer;
+            console.log(total);
+            let outof = 400;
+            let percentage = (total/outof)*100;
+            console.log(percentage);
+
+            if(percentage >= 75){
+                document.getElementById('output').innerHTML=`out of ${outof} your total is ${total}  and percentage is ${percentage} %. your grade is A. you are pass.`;
+            } else if(percentage >= 50){
+                document.getElementById('output').innerHTML=`out of ${outof} your total is ${total}  and percentage is ${percentage} %. your grade is B. you are pass.`;
+            } else if(percentage >= 35){
+                document.getElementById('output').innerHTML=`out of ${outof} your total is ${total}  and percentage is ${percentage} %. your grade is C. you are pass.`;
+            } else {
+                document.getElementById('output').innerHTML=`out of ${outof} your total is ${total}  and percentage is ${percentage} %. your grade is D. you are fail.`;
+            }
+        }
+        
+        function birthday(){
+            let wish = document.getElementById('textdiv1');
+            wish.style.display = "block";
+        }
+        
+    </script>
+</body>
+</html>
